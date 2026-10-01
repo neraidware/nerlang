@@ -1,0 +1,61 @@
+io :: use "@mbl/io"
+
+"lines starting with " will be treated as comments
+"proc takes no arguments, so we don't require an argument list"
+'
+another comment, but allows raw formatting
+'
+
+my_global_var :: 12
+
+"comments are just strings. if they're not actually assigned anywhere, they're just not interpreted."
+"stdout is the default"
+
+io.write_line("whatever @my_var")
+
+function: n32(): n32(first_argument: n32) {
+    io.write_line("this is a function that evaluates to an n32 (natural number of size 32)")
+
+    = first_argument
+}
+
+function_that_returns_a_boolean_value: b8(): b8(arg1: r64) {
+    = true
+}
+
+function_with_multiple_return_values :: { real: r32, natural: n32, integer: i32 }(r: r32) {
+    "function returns the result of the if expression evaluation"
+    value := if {
+        real >= 20 {
+            = 50
+        }
+
+        real <= 10 {
+            = 10
+        }
+
+        else {
+            break = 50
+        }
+    }
+
+    = if {
+        real <= 10 {
+            = 10
+        }
+    }
+
+    = repeat {
+        = if {
+            r <= 10 {
+                = 10
+            }
+
+            r >= 10 {
+                continue
+            }
+        }
+    }
+
+    "= { r, (r * 8)n32, (r * 8)i32 }"
+}

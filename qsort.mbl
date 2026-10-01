@@ -1,0 +1,53 @@
+io :: use "@mbl/io"
+
+qsort :: (arr: []i32, low: i32, high: i32) {
+    = if low >= high
+
+    pivot := arr.(high)
+    i := low - 1
+
+    j := low
+
+    repeat {
+        if j >= high {
+            break
+        }
+
+        if arr.(j) <= pivot {
+            i = i + 1
+            tmp := arr.(i)
+            arr.(i) = arr.(j)
+            arr.(j) = tmp
+        }
+
+        j = j + 1
+    }
+
+    tmp := arr.(i + 1)
+    arr.(i + 1) = arr.(high)
+    arr.(high) = tmp
+
+    p := i + 1
+
+    qsort(arr, low, p - 1)
+    qsort(arr, p + 1, high)
+}
+
+main :: () {
+    data := f32[5.56, 2, 8, 1, 9, 3]
+
+    qsort(data, 0, 5)
+
+    i := 0
+    repeat {
+        if {
+            i >= 6 {
+                break
+            }
+        }
+
+        io.write_line(io.format("@%", data.(i)))
+
+        i = i + 1
+    }
+}
