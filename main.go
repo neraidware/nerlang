@@ -5,12 +5,12 @@ import (
 	"log"
 	"os"
 
-	"neraid.live/mbl/tokenizer"
+	"neraid.live/ner/tokenizer"
 )
 
 func main() {
 	if len(os.Args) <= 1 {
-		fmt.Printf("usage: %v script.mbl\n", os.Args[0])
+		fmt.Printf("usage: %v script.ner\n", os.Args[0])
 		os.Exit(1)
 	}
 

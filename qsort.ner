@@ -1,4 +1,4 @@
-io :: use "@mbl/io"
+io :: use "@ner/io"
 
 qsort :: (arr: []i32, low: i32, high: i32) {
     = if low >= high

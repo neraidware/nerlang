@@ -1,4 +1,4 @@
-io :: use "@mbl/io"
+io :: use "@ner/io"
 
 "lines starting with " will be treated as comments
 "proc takes no arguments, so we don't require an argument list"
